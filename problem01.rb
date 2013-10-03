@@ -12,7 +12,7 @@ def multiples_of(limit, *num)
 end
 
 def sum_of(numArray)
-  @sum = numArray.inject { |sum, n| sum + n }
+  @sum = numArray.inject(:+)
 end
 
 multiples_of(1000, 3, 5)
