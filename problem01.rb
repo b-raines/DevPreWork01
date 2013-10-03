@@ -1,21 +1,12 @@
-def multiples_of(limit, *num)
-  @multiples ||= []
-  num.each do |number|
-    i = 1
-    multiple = 0
-    while multiple < limit do
-      multiple = number * i
-      @multiples << multiple if multiple < limit
-      i += 1
-    end
-  end
+def multiples_of(num1, num2, limit)
+  @multiples = *(1...limit)
+  @multiples.delete_if { |x| x % num1 != 0 && x % num2 != 0 }
 end
 
 def sum_of(numArray)
-  @sum = numArray.inject(:+)
+  @sum = @multiples.inject(:+)
 end
 
-multiples_of(1000, 3, 5)
-print @multiples
+multiples_of(3, 5, 1000)
 sum_of(@multiples)
 puts @sum
