@@ -1,16 +1,14 @@
 def divisors_of(num)
-  max = num
-  divisors = []
+  max = Math.sqrt(num)
   i = 1
-  until i >= max
+  @num_of_divisors = 0
+  until i > max
     if num % i == 0
-      divisors << i
-      divisors << num/i unless num/i == i
+      @num_of_divisors += num/i == i ? 1 : 2
     end
-    max = num/i
     i += 1
   end
-  divisors.length
+  @num_of_divisors
 end
 
 x = 0
