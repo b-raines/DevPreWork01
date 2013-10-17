@@ -4,10 +4,11 @@ def divisors_of(num)
   @num_of_divisors = 0
   until i > max
     if num % i == 0
-      @num_of_divisors += num/i == i ? 1 : 2
+      @num_of_divisors += 2
     end
     i += 1
   end
+  @num_of_divisors -= 1 if max.to_s =~ /\d+\.0/
   @num_of_divisors
 end
 
